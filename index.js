@@ -6,6 +6,7 @@ mongoose.Promise = global.Promise;
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser');
+const path = require('path');
 // Create the Express Application [2]
 ////////////////////////////////////////////////////////////////////////
 const app = express();
@@ -21,12 +22,7 @@ app.use(cors())
 var port = process.env.PORT || 3000;
 require('./app/routes/package.routes.js')(app);
 require('./app/routes/registry.routes.js')(app);
-////////////////////////////////////////////////////////////////////////
-app.get('/', (req, res) => {
- res.json({
- "message": "This is a JSON response to a HTTP GET request."
- });
-});
+require('./app/routes/app.routes.js')(app, path);
 // Connect to the database
 mongoose.connect(dbConfig.url)
 .then(() => {
