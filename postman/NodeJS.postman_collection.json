@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "8890858c-b7e2-475d-b1e0-7821df6b6369",
+		"name": "NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Package",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fromPersonName",
+							"value": "Remitente1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toPersonName",
+							"value": "Receptor1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "phone",
+							"value": "321654987",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toAddress",
+							"value": "Cll X",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "45",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "dimention",
+							"value": "3x7",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "packageImage",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Packages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Package by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes/5b1f0c15ed18b928340f2658",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes",
+						"5b1f0c15ed18b928340f2658"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Package",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "toPersonName",
+							"value": "Receptor1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "phone",
+							"value": "321654987",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toAddress",
+							"value": "Cll XX",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "packageImage",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes/5b1f0c15ed18b928340f2658",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes",
+						"5b1f0c15ed18b928340f2658"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Package",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes/5b1f0c15ed18b928340f2658",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes",
+						"5b1f0c15ed18b928340f2658"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
