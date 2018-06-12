@@ -29,8 +29,8 @@ const PackageSchema = mongoose.Schema({
         data: Buffer,
         contentType: String
     },
-    Weight: String,
-    Dimention: String
+    weight: String,
+    dimention: String
 }, {
     timestamps: true
 });

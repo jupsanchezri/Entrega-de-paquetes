@@ -1,6 +1,7 @@
 // Database configuration
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
+const fileUpload = require('express-fileupload');
 mongoose.Promise = global.Promise;
 ////////////////////////////////////////////////////////////////////////
 const express = require('express');
@@ -10,6 +11,7 @@ const path = require('path');
 // Create the Express Application [2]
 ////////////////////////////////////////////////////////////////////////
 const app = express();
+app.use(fileUpload());
 // Configure the server [3]
 ////////////////////////////////////////////////////////////////////////
 // Parse requests of content-type - "application/x-www-form-urlencoded"
