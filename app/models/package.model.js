@@ -33,7 +33,7 @@ const PackageSchema = mongoose.Schema({
     dimention: String,
     notifications: [{
         type: mongoose.Schema.ObjectId,
-        ref: 'Package' 
+        ref: 'Registry' 
     }],
 }, {
     timestamps: true

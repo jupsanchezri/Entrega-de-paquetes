@@ -20,13 +20,19 @@ exports.create = (req, res) => {
         state: req.body.state
     });
     // Save the Registry in the database
+    console.log("--> " + req.params.packageid);
     registry.save()
         .then(data => {
+            console.log(data);
             Package.findByIdAndUpdate(req.params.packageid, { $push: { notifications: data._id }}, { new: true })
-            res.status(200).send(data);
+            .then(package => {
+                res.status(200).send(data);
+            }).catch(err => {
+                res.status(200).send(data);                
+            });
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Something wrong occurred while creating the record."
+                message: err.message || "Something wrong occurred while retrieving the records."
             });
         });
 };

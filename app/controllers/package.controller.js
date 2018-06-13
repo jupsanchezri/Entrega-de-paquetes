@@ -36,21 +36,24 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
     let queryLocation = {};
     let limitPackage = 0;
-    if(req.body.longitude && req.body.latitude) {
-        queryLocation = { location: { type: "Point", coordinates: [req.body.longitude, req.body.latitude] }};
+    let limitRegistry = 0;
+    if(req.query.longitude && req.query.latitude) {
+        queryLocation = { center: { type: "Point", coordinates: [0, 0] }};
         limitPackage = 10;
+        limitRegistry = 1;
     }
+    console.log(queryLocation);
     
     Package.find()
         .populate({
             path: 'notifications',
-            select: 'location, date',
+            select: 'location date',
             options: { 
                 sort: { date: 'descending' },
-                limit: 1 
+                limit: limitRegistry
             }
         })
-        //.near(queryLocation)
+        .where("notifications.location").nearSphere(queryLocation)
         //limit(limitPackage)
         .then(packages => {
             res.status(200).send(packages);

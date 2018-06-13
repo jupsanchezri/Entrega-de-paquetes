@@ -213,6 +213,121 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create Registry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"longitude\": 2,\n\t\"latitude\": 3,\n\t\"desciption\": \"translado de mercancia 1\",\n\t\"state\": \"En buen estado 1\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes/5b1f13af45d79648e847543d/registros",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes",
+						"5b1f13af45d79648e847543d",
+						"registros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Registries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/registros",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"registros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Registry by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/registros/5b209e6ea98898545cc8bcbd",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"registros",
+						"5b209e6ea98898545cc8bcbd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Near Packages To Location",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"longitude\": 0,\n\t\"latitude\": 0\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
