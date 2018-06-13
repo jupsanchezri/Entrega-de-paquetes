@@ -1,4 +1,5 @@
 const Package = require('../models/package.model.js');
+const Registry = require('../models/registry.model.js');
 // Create and save a new Package
 exports.create = (req, res) => {
     // (does not include required data)
@@ -33,18 +34,24 @@ exports.create = (req, res) => {
 };
 // Retrieve and list all Packages
 exports.findAll = (req, res) => {
-    let query = Object();
+    let queryLocation = {};
+    let limitPackage = 0;
     if(req.body.longitude && req.body.latitude) {
-        query = {
-            location: {
-                $near: {
-                    $geometry: { type: "Point", coordinates: [req.body.longitude, req.body.latitude] }
-                }
-            }
-        };
+        queryLocation = { location: { type: "Point", coordinates: [req.body.longitude, req.body.latitude] }};
+        limitPackage = 10;
     }
-
-    Package.find(query)
+    
+    Package.find()
+        .populate({
+            path: 'notifications',
+            select: 'location, date',
+            options: { 
+                sort: { date: 'descending' },
+                limit: 1 
+            }
+        })
+        //.near(queryLocation)
+        //limit(limitPackage)
         .then(packages => {
             res.status(200).send(packages);
         }).catch(err => {

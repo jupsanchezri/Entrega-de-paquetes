@@ -30,7 +30,11 @@ const PackageSchema = mongoose.Schema({
         contentType: String
     },
     weight: String,
-    dimention: String
+    dimention: String,
+    notifications: [{
+        type: mongoose.Schema.ObjectId,
+        ref: 'Package' 
+    }],
 }, {
     timestamps: true
 });

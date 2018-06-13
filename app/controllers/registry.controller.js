@@ -1,4 +1,5 @@
 const Registry = require('../models/registry.model.js');
+const Package = require('../models/package.model.js');
 // Create and save a new Registry
 exports.create = (req, res) => {
     // Validate if the request's body is empty
@@ -10,7 +11,6 @@ exports.create = (req, res) => {
     }
     // Create a new Registry with request's data
     const registry = new Registry({
-        packageID: req.params.packageid,
         location: {
             type: "Point",
             coordinates: [req.body.longitude, req.body.latitude]
@@ -22,6 +22,7 @@ exports.create = (req, res) => {
     // Save the Registry in the database
     registry.save()
         .then(data => {
+            Package.findByIdAndUpdate(req.params.packageid, { $push: { notifications: data._id }}, { new: true })
             res.status(200).send(data);
         }).catch(err => {
             res.status(500).send({

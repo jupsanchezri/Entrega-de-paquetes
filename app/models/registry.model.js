@@ -1,9 +1,5 @@
 const mongoose = require('mongoose');
 const RegistrySchema = mongoose.Schema({
-    packageID: {
-        type: String,
-        required: true
-    },
     date: { 
         type: Date, 
         default: Date.now 
