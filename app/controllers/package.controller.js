@@ -33,7 +33,18 @@ exports.create = (req, res) => {
 };
 // Retrieve and list all Packages
 exports.findAll = (req, res) => {
-    Package.find()
+    let query = Object();
+    if(req.body.longitude && req.body.latitude) {
+        query = {
+            location: {
+                $near: {
+                    $geometry: { type: "Point", coordinates: [req.body.longitude, req.body.latitude] }
+                }
+            }
+        };
+    }
+
+    Package.find(query)
         .then(packages => {
             res.status(200).send(packages);
         }).catch(err => {

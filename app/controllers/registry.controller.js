@@ -1,26 +1,26 @@
 const Registry = require('../models/registry.model.js');
 // Create and save a new Registry
 exports.create = (req, res) => {
- console.log("Creating a Registry ... soon!");
-};
-// Create and save a new Product
-/*
-exports.create = (req, res) => {
     // Validate if the request's body is empty
     // (does not include required data)
     if (Object.keys(req.body).length === 0) {
         return res.status(400).send({
-            message: "Product data can not be empty"
+            message: "Registry data can not be empty"
         });
     }
-    // Create a new Product with request's data
-    const product = new Product({
-        name: req.body.name,
-        price: req.body.price || 0,
-        expiration: req.body.expiration || null
+    // Create a new Registry with request's data
+    const registry = new Registry({
+        packageID: req.params.packageid,
+        location: {
+            type: "Point",
+            coordinates: [req.body.longitude, req.body.latitude]
+        },
+        isClosed: req.body.isCLosed | false,
+        desciption: req.body.description,
+        state: req.body.state
     });
-    // Save the Product in the database
-    product.save()
+    // Save the Registry in the database
+    registry.save()
         .then(data => {
             res.status(200).send(data);
         }).catch(err => {
@@ -29,45 +29,34 @@ exports.create = (req, res) => {
             });
         });
 };
-*/
 
 // Retrieve and list all Registries
 exports.findAll = (req, res) => {
- console.log("Listing all Registries ... soon!");
-};
-// Retrieve and list all Products
-/*
-exports.findAll = (req, res) => {
-    Product.find()
-        .then(products => {
-            res.status(200).send(products);
+    Registry.find()
+        .sort({date: 'descending'})
+        .then(registry => {
+            res.status(200).send(registry);
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Something wrong occurred while retrieving the records."
             });
         });
 };
-*/   
 
 // Get a single Registry by its id
 exports.findOne = (req, res) => {
- console.log("Getting a particular Registry ... soon!");
-};
-// Get a single Product by its id
-/*
-exports.findOne = (req, res) => {
-    Product.findById(req.params.id)
-        .then(product => {
-            if (!product) {
+    Registry.findById(req.params.id)
+        .then(registry => {
+            if (!registry) {
                 return res.status(404).send({
-                    message: "Product not found with id:" + req.params.id
+                    message: "Registry not found with id:" + req.params.id
                 });
             }
-            res.status(200).send(product);
+            res.status(200).send(registry);
         }).catch(err => {
             if (err.kind === 'ObjectId') {
                 return res.status(404).send({
-                    message: "Product not found with id:" + req.params.id
+                    message: "Registry not found with id:" + req.params.id
                 });
             }
             return res.status(500).send({
@@ -75,75 +64,17 @@ exports.findOne = (req, res) => {
                     + req.params.id
             });
         });
-};   
-*/
-
-// Update a Registry by its id
-exports.update = (req, res) => {
- console.log("Updating a particular Registry ... soon!");
 };
-// Update a Product by its id
-/*
-exports.update = (req, res) => {
-    // Validate if the request's body is empty
-    // (does not include required data)
-    if (Object.keys(req.body).length === 0) {
-        return res.status(400).send({
-            message: "Product data can not be empty"
-        });
-    }
-    // Find the Product and update it with the request body data
-    Product.findByIdAndUpdate(req.params.id, {
-        name: req.body.name,
-        price: req.body.price || 0,
-        expiration: req.body.expiration || null
-    }, { new: true })
-        .then(product => {
-            if (!product) {
-                return res.status(404).send({
-                    message: "Product not found with id:" + req.params.id
-                });
-            }
-            res.status(200).send(product);
-        }).catch(err => {
-            if (err.kind === 'ObjectId') {
-                return res.status(404).send({
-                    message: "Product not found with id:" + req.params.id
-                });
-            }
-            return res.status(500).send({
-                message: "Something wrong ocurred while updating the record with id:" +
-                    req.params.id
-            });
-        });
-};          
-*/
 
-// Delete a Registry by its id
-exports.delete = (req, res) => {
- console.log("Deleting a particular Registry ... soon!");
-};
-// Delete a Product by its id
-/*
-exports.delete = (req, res) => {
-    Product.findByIdAndRemove(req.params.id)
-        .then(product => {
-            if (!product) {
-                return res.status(404).send({
-                    message: "Product not found with id:" + req.params.id
-                });
-            }
-            res.status(200).send({ message: "Product deleted successfully!" });
+// Retrieve and list all Registries by Package
+exports.findAllByPackage = (req, res) => {
+    Registry.find({packageID: req.params.packageid})
+        .sort({date: 'descending'})
+        .then(registry => {
+            res.status(200).send(registry);
         }).catch(err => {
-            if (err.kind === 'ObjectId' || err.name === 'NotFound') {
-                return res.status(404).send({
-                    message: "Product not found with id:" + req.params.id
-                });
-            }
-            return res.status(500).send({
-                message: "Something wrong ocurred while deleting the record with id:" +
-                    req.params.id
+            res.status(500).send({
+                message: err.message || "Something wrong occurred while retrieving the records."
             });
         });
 };
-*/

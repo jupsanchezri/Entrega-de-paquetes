@@ -8,11 +8,11 @@ const RegistrySchema = mongoose.Schema({
         type: Date, 
         default: Date.now 
     },
-    location: { 
-        type: { type:String },
+    location: {
+        type: { type: String },
         coordinates: [Number]
     },
-    isClosed: { 
+    isClosed: {
         type: Boolean, 
         default: false 
     },
