@@ -37,24 +37,26 @@ exports.findAll = (req, res) => {
     let queryLocation = {};
     let limitPackage = 0;
     let limitRegistry = 0;
-    if(req.query.longitude && req.query.latitude) {
-        queryLocation = { center: { type: "Point", coordinates: [0, 0] }};
+    if (req.query.longitude && req.query.latitude) {
+        queryLocation = {
+            'currentLocation': {
+                $near: [req.query.latitude, req.query.longitude]
+            }
+        };
         limitPackage = 10;
         limitRegistry = 1;
     }
-    console.log(queryLocation);
-    
-    Package.find()
+
+    Package.find(queryLocation)
         .populate({
             path: 'notifications',
-            select: 'location date',
-            options: { 
+            select: 'location date description',
+            options: {
                 sort: { date: 'descending' },
                 limit: limitRegistry
             }
         })
-        .where("notifications.location").nearSphere(queryLocation)
-        //limit(limitPackage)
+        .limit(limitPackage)
         .then(packages => {
             res.status(200).send(packages);
         }).catch(err => {
@@ -91,19 +93,19 @@ exports.update = (req, res) => {
     if (Object.keys(req.body).length === 0 && Object.keys(req.files).length === 0) {
         return res.status(400).send({
             message: (Object.keys(req.body).length === 0 ? "Package data can not be empty " : "")
-            + (Object.keys(req.files).length === 0 ? "Package image can not be empty" : "")
+                + (Object.keys(req.files).length === 0 ? "Package image can not be empty" : "")
         });
     }
 
     // Update info if the data is received
     const packageToUpdate = {};
-    if(req.body.fromPersonName) packageToUpdate.fromPersonName = req.body.fromPersonName;
-    if(req.body.toPersonName) packageToUpdate.toPersonName = req.body.toPersonName;
-    if(req.body.phone) packageToUpdate.phone = req.body.phone;
-    if(req.body.toAddress) packageToUpdate.toAddress = req.body.toAddress;
-    if(req.body.weight) packageToUpdate.weight = req.body.weight;
-    if(req.body.dimention) packageToUpdate.dimention = req.body.dimention;
-    if(req.body.packageImage) {
+    if (req.body.fromPersonName) packageToUpdate.fromPersonName = req.body.fromPersonName;
+    if (req.body.toPersonName) packageToUpdate.toPersonName = req.body.toPersonName;
+    if (req.body.phone) packageToUpdate.phone = req.body.phone;
+    if (req.body.toAddress) packageToUpdate.toAddress = req.body.toAddress;
+    if (req.body.weight) packageToUpdate.weight = req.body.weight;
+    if (req.body.dimention) packageToUpdate.dimention = req.body.dimention;
+    if (req.body.packageImage) {
         packageToUpdate.packageImage = {
             data: req.files.packageImage.data,
             contentType: req.files.packageImage.mimetype

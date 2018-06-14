@@ -29,6 +29,11 @@ const PackageSchema = mongoose.Schema({
         data: Buffer,
         contentType: String
     },
+    currentLocation: {
+        type: [Number],
+        index: '2d',
+        default: [0, 0]
+    },
     weight: String,
     dimention: String,
     notifications: [{

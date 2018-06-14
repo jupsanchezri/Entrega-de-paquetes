@@ -11,20 +11,18 @@ exports.create = (req, res) => {
     }
     // Create a new Registry with request's data
     const registry = new Registry({
-        location: {
-            type: "Point",
-            coordinates: [req.body.longitude, req.body.latitude]
-        },
+        location: [req.body.latitude, req.body.longitude],
         isClosed: req.body.isCLosed | false,
         desciption: req.body.description,
         state: req.body.state
     });
     // Save the Registry in the database
-    console.log("--> " + req.params.packageid);
     registry.save()
         .then(data => {
-            console.log(data);
-            Package.findByIdAndUpdate(req.params.packageid, { $push: { notifications: data._id }}, { new: true })
+            Package.findByIdAndUpdate(req.params.packageid, { 
+                currentLocation: data.location,
+                $push: { notifications: data._id }
+            }, { new: true })
             .then(package => {
                 res.status(200).send(data);
             }).catch(err => {

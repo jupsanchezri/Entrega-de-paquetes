@@ -5,14 +5,14 @@ const RegistrySchema = mongoose.Schema({
         default: Date.now 
     },
     location: {
-        type: { type: String },
-        coordinates: [Number]
+        type: [Number],
+        index: '2d'
     },
     isClosed: {
         type: Boolean, 
         default: false 
     },
-    desciption: String,
+    description: String,
     state: String
 }, {
     timestamps: true
