@@ -1,5 +1,4 @@
 const Package = require('../models/package.model.js');
-const Registry = require('../models/registry.model.js');
 // Create and save a new Package
 exports.create = (req, res) => {
     // (does not include required data)

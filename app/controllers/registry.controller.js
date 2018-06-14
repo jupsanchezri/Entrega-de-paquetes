@@ -13,21 +13,21 @@ exports.create = (req, res) => {
     const registry = new Registry({
         location: [req.body.latitude, req.body.longitude],
         isClosed: req.body.isCLosed | false,
-        desciption: req.body.description,
+        description: req.body.description,
         state: req.body.state
     });
     // Save the Registry in the database
     registry.save()
         .then(data => {
-            Package.findByIdAndUpdate(req.params.packageid, { 
+            Package.findByIdAndUpdate(req.params.packageid, {
                 currentLocation: data.location,
                 $push: { notifications: data._id }
             }, { new: true })
-            .then(package => {
-                res.status(200).send(data);
-            }).catch(err => {
-                res.status(200).send(data);                
-            });
+                .then(package => {
+                    res.status(200).send(data);
+                }).catch(err => {
+                    res.status(200).send(data);
+                });
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Something wrong occurred while retrieving the records."
@@ -38,7 +38,7 @@ exports.create = (req, res) => {
 // Retrieve and list all Registries
 exports.findAll = (req, res) => {
     Registry.find()
-        .sort({date: 'descending'})
+        .sort({ date: 'descending' })
         .then(registry => {
             res.status(200).send(registry);
         }).catch(err => {
@@ -73,10 +73,16 @@ exports.findOne = (req, res) => {
 
 // Retrieve and list all Registries by Package
 exports.findAllByPackage = (req, res) => {
-    Registry.find({packageID: req.params.packageid})
-        .sort({date: 'descending'})
+    Package.findById(req.params.packageid)
+        .populate({
+            path: 'notifications',
+            options: {
+                sort: { date: 'descending' }
+            }
+        })
+        .select('notifications')
         .then(registry => {
-            res.status(200).send(registry);
+            res.status(200).send(registry.notifications);
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Something wrong occurred while retrieving the records."

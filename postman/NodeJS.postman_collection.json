@@ -328,6 +328,36 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Registries By Package",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/paquetes/5b21eac0f250310664d51ce1/registros",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"paquetes",
+						"5b21eac0f250310664d51ce1",
+						"registros"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
