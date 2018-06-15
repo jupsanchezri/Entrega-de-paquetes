@@ -22,8 +22,9 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use(express.static('public'));
 app.use('/images', express.static(__dirname + '/public/img'));
+app.use('/files', express.static(__dirname + '/public/postman'));
 // Listening server port
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 80;
 require('./app/routes/package.routes.js')(app);
 require('./app/routes/registry.routes.js')(app);
 require('./app/routes/app.routes.js')(app, path);

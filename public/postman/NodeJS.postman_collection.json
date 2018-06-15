@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "8890858c-b7e2-475d-b1e0-7821df6b6369",
+		"name": "NodeJS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Package",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fromPersonName",
+							"value": "Remitente1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toPersonName",
+							"value": "Receptor1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "phone",
+							"value": "321654987",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toAddress",
+							"value": "Cll X",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "45",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "dimention",
+							"value": "3x7",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "packageImage",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Packages",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Package by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b23083d7628b20014356068",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes",
+						"5b23083d7628b20014356068"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Package",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "fromPersonName",
+							"value": "Remitente1x1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toPersonName",
+							"value": "Receptor1x1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "phone",
+							"value": "3216549",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "toAddress",
+							"value": "Cll XX",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "50",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "dimention",
+							"value": "3x7",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "packageImage",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b23083d7628b20014356068",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes",
+						"5b23083d7628b20014356068"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Package",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b2314477628b2001435606b",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes",
+						"5b2314477628b2001435606b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Registry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"latitude\": 3,\n\t\"longitude\": 11,\n\t\"desciption\": \"translado de mercancia 4\",\n\t\"state\": \"En buen estado 4\"\n}"
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b2310577628b2001435606a/registros",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes",
+						"5b2310577628b2001435606a",
+						"registros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Registries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/registros",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"registros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Registry by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/registros/5b2317a87628b20014356071",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"registros",
+						"5b2317a87628b20014356071"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Near Packages To Location",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"latitude\": 3,\n\t\"longitude\": 5\n}"
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes?latitude=3&longitude=5",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "3"
+						},
+						{
+							"key": "longitude",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Registries By Package",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b23083d7628b20014356068/registros",
+					"protocol": "https",
+					"host": [
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
+					],
+					"path": [
+						"api",
+						"paquetes",
+						"5b23083d7628b20014356068",
+						"registros"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
