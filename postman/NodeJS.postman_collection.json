@@ -62,11 +62,13 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes"
@@ -90,11 +92,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes"
@@ -118,15 +122,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes/5b1f0c15ed18b928340f2658",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b23083d7628b20014356068",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes",
-						"5b1f0c15ed18b928340f2658"
+						"5b23083d7628b20014356068"
 					]
 				}
 			},
@@ -146,20 +152,38 @@
 					"mode": "formdata",
 					"formdata": [
 						{
+							"key": "fromPersonName",
+							"value": "Remitente1x1",
+							"type": "text",
+							"description": ""
+						},
+						{
 							"key": "toPersonName",
-							"value": "Receptor1",
+							"value": "Receptor1x1",
 							"type": "text",
 							"description": ""
 						},
 						{
 							"key": "phone",
-							"value": "321654987",
+							"value": "3216549",
 							"type": "text",
 							"description": ""
 						},
 						{
 							"key": "toAddress",
 							"value": "Cll XX",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "weight",
+							"value": "50",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "dimention",
+							"value": "3x7",
 							"type": "text",
 							"description": ""
 						},
@@ -171,15 +195,17 @@
 					]
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes/5b1f0c15ed18b928340f2658",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b23083d7628b20014356068",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes",
-						"5b1f0c15ed18b928340f2658"
+						"5b23083d7628b20014356068"
 					]
 				}
 			},
@@ -200,15 +226,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes/5b1f0c15ed18b928340f2658",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b2314477628b2001435606b",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes",
-						"5b1f0c15ed18b928340f2658"
+						"5b2314477628b2001435606b"
 					]
 				}
 			},
@@ -226,18 +254,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"longitude\": 2,\n\t\"latitude\": 3,\n\t\"desciption\": \"translado de mercancia 1\",\n\t\"state\": \"En buen estado 1\"\n}"
+					"raw": "{\n\t\"latitude\": 3,\n\t\"longitude\": 11,\n\t\"desciption\": \"translado de mercancia 4\",\n\t\"state\": \"En buen estado 4\"\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes/5b1f13af45d79648e847543d/registros",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b2310577628b2001435606a/registros",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes",
-						"5b1f13af45d79648e847543d",
+						"5b2310577628b2001435606a",
 						"registros"
 					]
 				}
@@ -259,11 +289,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/registros",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/registros",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"registros"
@@ -287,7 +319,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/registros/5b209e6ea98898545cc8bcbd",
+					"raw": "localhost:3000/api/registros/5b2317a87628b20014356071",
 					"host": [
 						"localhost"
 					],
@@ -295,7 +327,7 @@
 					"path": [
 						"api",
 						"registros",
-						"5b209e6ea98898545cc8bcbd"
+						"5b2317a87628b20014356071"
 					]
 				}
 			},
@@ -304,7 +336,7 @@
 		{
 			"name": "Get Near Packages To Location",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -313,17 +345,29 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"longitude\": 0,\n\t\"latitude\": 0\n}"
+					"raw": "{\n\t\"latitude\": 3,\n\t\"longitude\": 5\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes?latitude=3&longitude=5",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "3"
+						},
+						{
+							"key": "longitude",
+							"value": "5"
+						}
 					]
 				}
 			},
@@ -344,15 +388,17 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/paquetes/5b21eac0f250310664d51ce1/registros",
+					"raw": "https://my-nodejs-docker-application-wpcavbfbhy.now.sh/api/paquetes/5b23083d7628b20014356068/registros",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"my-nodejs-docker-application-wpcavbfbhy",
+						"now",
+						"sh"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"paquetes",
-						"5b21eac0f250310664d51ce1",
+						"5b23083d7628b20014356068",
 						"registros"
 					]
 				}

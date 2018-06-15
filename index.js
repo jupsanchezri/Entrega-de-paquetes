@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 // Activate the CORS access on all routes
 app.use(cors())
+app.use(express.static('public'));
+app.use('/images', express.static(__dirname + '/public/img'));
 // Listening server port
 var port = process.env.PORT || 3000;
 require('./app/routes/package.routes.js')(app);

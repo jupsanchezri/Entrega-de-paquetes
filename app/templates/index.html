@@ -1,21 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Entrega de paquetes</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 </head>
+
 <body>
     <div class="container text-center">
-        <br><h2>Entrega de paquetes</h2><br>
+        <br>
+        <h2>Entrega de paquetes</h2>
+        <h3>Servicios</h3>
         <p>
-            <a href="/formulario-paquete/">Formulario paquete</a>
+            <a href="https://my-nodejs-docker-application-wpcavbfbhy.now.sh/">ZEIT Docker</a>
         </p>
-        <p>
-            <a href="/formulario-registro/">Formulario registro</a>
-        </p>
+        <div class="card">
+            <h5 class="card-header">Crear paquete</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: POST</li>
+                            <li>/api/paquetes</li>
+                        </ul>
+                        <strong class="card-text">Datos para enviar</strong>
+                        <ul>
+                            <li>fromPersonName:Remitente1</li>
+                            <li>toPersonName:Receptor1</li>
+                            <li>phone:321654987</li>
+                            <li>toAddress:Cll X</li>
+                            <li>weight:45</li>
+                            <li>dimention:3x7</li>
+                        </ul>
+                        <p>Añadir un nuevo campo llamado "
+                            <strong>packageImage</strong>" de tipo file, allí se agrega la imagen</p>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Create-Package.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Cargar todos los paquetes</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: GET</li>
+                            <li>/api/paquetes</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Get-All-Packages.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Cargar paquete específico</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: GET</li>
+                            <li>/api/paquetes/:id</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Get-Package-By-ID.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Actualizar paquete</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: PUT</li>
+                            <li>/api/paquetes/:id/</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Update-Package.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Eliminar paquete</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: DELETE</li>
+                            <li>/api/paquetes/:id</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Delete-Package.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Crear registro de un paquete</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: POST</li>
+                            <li>/api/paquetes/:id/registros</li>
+                        </ul>
+                        <strong class="card-text">Datos para enviar</strong>
+                        <pre><code>
+{
+ "latitude": 3,
+ "longitude": 6,
+ "desciption": "translado de mercancia 3",
+ "state": "En buen estado 3"
+}
+                        </code></pre>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Create-Registry.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Cargar todos los registros</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: GET</li>
+                            <li>/api/registros</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Get-All-Registries.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Cargar registro específico</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: GET</li>
+                            <li>/api/registros/:id</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Get-Registry-By-ID.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Carga los 10 paquetes más cercanos a la ubicación dada</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: GET</li>
+                            <li>/api/paquetes?latitude=[#]&longitude=[#]</li>
+                        </ul>
+                        <p class="card-text">Donde "<strong>[#]</strong>" es el número correspondiente a la coordenada.</p>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Get-Near-package-To-Location.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h5 class="card-header">Carga los Registros de un paquete - Orden Descendiente de fecha</h5>
+            <div class="card-body text-left">
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong class="card-text">Url del servicio</strong>
+                        <ul>
+                            <li>Tipo: GET</li>
+                            <li>/api/paquetes/:id/registros</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="/images/Get-Registries-By-Package.png" alt="" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
+
 </html>
